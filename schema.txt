@@ -1,0 +1,86 @@
++----------------------------+
+| Tables_in_Rt_social_engage |
++----------------------------+
+| service_options            |
+| services                   |
+| sub_services               |
+| user_services              |
+| users                      |
++----------------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [Rt_social_engage]> desc users;
++------------------+-------------+------+-----+-------------------+----------------+
+| Field            | Type        | Null | Key | Default           | Extra          |
++------------------+-------------+------+-----+-------------------+----------------+
+| id               | int(11)     | NO   | PRI | NULL              | auto_increment |
+| useremail        | varchar(25) | YES  |     | NULL              |                |
+| password         | varchar(40) | YES  |     | NULL              |                |
+| verified         | tinyint(1)  | YES  |     | 0                 |                |
+| created_at       | timestamp   | NO   |     | CURRENT_TIMESTAMP |                |
+| password_created | tinyint(1)  | YES  |     | NULL              |                |
+| otp              | int(11)     | YES  |     | NULL              |                |
++------------------+-------------+------+-----+-------------------+----------------+
+7 rows in set (0.00 sec)
+
+MariaDB [Rt_social_engage]> desc user_services;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| user_id    | int(11)     | YES  |     | NULL    |                |
+| service_id | varchar(50) | YES  |     | NULL    |                |
+| otp        | int(6)      | YES  |     | NULL    |                |
+| verified   | tinyint(1)  | YES  |     | 0       |                |
+| channel    | varchar(50) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+MariaDB [Rt_social_engage]> desc sub_services;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| service_id    | int(11)     | NO   |     | NULL    |                |
+| code          | varchar(50) | YES  |     | NULL    |                |
+| name          | varchar(50) | YES  |     | NULL    |                |
+| icon          | text        | YES  |     | NULL    |                |
+| cover         | text        | YES  |     | NULL    |                |
+| short_desc    | text        | YES  |     | NULL    |                |
+| long_desc     | text        | YES  |     | NULL    |                |
+| is_paid       | int(1)      | YES  |     | 0       |                |
+| monthly_price | int(11)     | YES  |     | 0       |                |
+| annual_price  | int(11)     | YES  |     | 0       |                |
+| currency_code | varchar(5)  | YES  |     | USD     |                |
++---------------+-------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+MariaDB [Rt_social_engage]> desc services;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| service_uuid  | varchar(50) | YES  |     | NULL    |                |
+| name          | varchar(50) | YES  |     | NULL    |                |
+| icon          | text        | YES  |     | NULL    |                |
+| cover         | text        | YES  |     | NULL    |                |
+| short_desc    | text        | YES  |     | NULL    |                |
+| long_desc     | text        | YES  |     | NULL    |                |
+| is_paid       | int(1)      | YES  |     | 0       |                |
+| monthly_price | int(11)     | YES  |     | 0       |                |
+| annual_price  | int(11)     | YES  |     | 0       |                |
+| currency_code | varchar(5)  | YES  |     | USD     |                |
++---------------+-------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
+
+
+MariaDB [Rt_social_engage]> desc service_options;
++----------------------+--------------+------+-----+-------------------+----------------+
+| Field                | Type         | Null | Key | Default           | Extra          |
++----------------------+--------------+------+-----+-------------------+----------------+
+| id                   | int(11)      | NO   | PRI | NULL              | auto_increment |
+| service_id           | int(11)      | NO   |     | NULL              |                |
+| service_option       | varchar(200) | YES  |     | NULL              |                |
+| service_option_value | longtext     | YES  |     | NULL              |                |
+| created_date         | timestamp    | NO   |     | CURRENT_TIMESTAMP |                |
++----------------------+--------------+------+-----+-------------------+----------------+
